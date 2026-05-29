@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elderly Healthcare Chatbot</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+</head>
+<body>
+
+  <div id="main-layout">
+    
+    <div id="sidebar">
+      <div class="sidebar-header">
+        <h3><i class="ti ti-history"></i> Past Conversations</h3>
+        <button id="new-chat-btn" onclick="startNewChat()">+ New Chat</button>
+      </div>
+      <div id="history-list">
+        </div>
+    </div>
+
+    <div id="app">
+      <div id="header">
+        <div class="avatar">🏥</div>
+        <div class="info">
+          <h2>HealthCare Assistant</h2>
+          <p>Your personal senior health guide</p>
+        </div>
+        <div class="status">
+          <div class="dot"></div> Online
+        </div>
+      </div>
+
+      <div id="quick-topics">
+        <button class="topic-btn" onclick="sendQuick('What medicines should elderly avoid?')">💊 Medications</button>
+        <button class="topic-btn" onclick="sendQuick('Tips for managing diabetes in old age')">🩸 Diabetes</button>
+        <button class="topic-btn" onclick="sendQuick('Heart health tips for seniors')">❤️ Heart health</button>
+        <button class="topic-btn" onclick="sendQuick('How to prevent falls at home?')">🦽 Fall prevention</button>
+        <button class="topic-btn" onclick="sendQuick('Diet and nutrition for elderly')">🥗 Nutrition</button>
+        <button class="topic-btn" onclick="sendQuick('Exercise tips for elderly people')">🏃 Exercise</button>
+      </div>
+
+      <div id="messages"></div>
+
+      <div id="input-area">
+        <textarea
+          id="user-input"
+          placeholder="Ask your health question here..."
+          rows="1"
+          onkeydown="handleKey(event)"
+        ></textarea>
+        <button id="send-btn" onclick="sendMessage()" aria-label="Send message">
+          <i class="ti ti-send"></i>
+        </button>
+      </div>
+
+      <div class="disclaimer">
+        ⚠️ For informational purposes only. Always consult your doctor for medical advice.
+      </div>
+    </div>
+
+  </div>
+
+  <script src="{{ url_for('static', filename='chatbot.js') }}"></script>
+</body>
+</html>
